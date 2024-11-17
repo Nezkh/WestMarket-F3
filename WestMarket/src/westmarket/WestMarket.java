@@ -116,21 +116,39 @@ public class WestMarket {
                 }
             }
         }
+        int categoriaSeleccionada = 0;
+        if (contador < 3) {
+            while (contador < 3) {
+                System.out.println("Categorías disponibles:");
+
+                for (Categoria categoria : categorias) {
+                    System.out.println(categoria.getCodigo() + ". " + categoria.getNombre());
+                }
+
+                int categoriaSeleccionadaTemp = 0;
+
+                System.out.print("Seleccione una categoría: ");
+                try {
+                    categoriaSeleccionadaTemp = Integer.parseInt(scanner.nextLine());
+                    if (categoriaSeleccionadaTemp < 1 || categoriaSeleccionadaTemp > categorias.size()) {
+                        contador++;
+                        System.out.println("Ingrese categoria válida.");
+                    } else {
+                        categoriaSeleccionada = categoriaSeleccionadaTemp;
+                        
+                        break;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Ingrese categoría válida.");
+                    contador++;
+                }
+
+            }
+        }
 
         if (contador == 3) {
             System.out.println("Ha sobrepasado la cantidad máxima de intentos, adiós!");
         } else {
-            System.out.println("Categorías disponibles:");
-            for (Categoria categoria : categorias) {
-                System.out.println(categoria.getCodigo() + ". " + categoria.getNombre());
-            }
-
-            int categoriaSeleccionada = 0;
-            while (categoriaSeleccionada < 1 || categoriaSeleccionada > categorias.size()) {
-                System.out.print("Seleccione una categoría: ");
-                categoriaSeleccionada = Integer.parseInt(scanner.nextLine());
-            }
-
             Categoria categoria = categorias.get(categoriaSeleccionada - 1);
             Productos producto = new Productos(codigo, descripcion, precio, cantidad, categoria);
             productosList.add(producto);
