@@ -41,6 +41,7 @@ public class WestMarket {
                     System.out.println("Opción inválida. Intente de nuevo.");
             }
         } while (opcion != 4);
+        //To-do: agregar la forma de cuando sobrepasa los 3 intentos se salga del do-while anterior del menú y se salga de la aplicación
 
         scanner.close();
     }
