@@ -1,0 +1,11 @@
+# archivos compilados java
+*.class
+
+# archivos de propiedades privadas
+
+private.properties
+private.xml
+
+# propiedades de proyecto por el jdk
+
+project.properties
